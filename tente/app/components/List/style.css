@@ -1,0 +1,39 @@
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+tr:hover {
+	background-color: #ffff99;
+}
+
+.noCSSneeded {
+	/*  
+	&#8597; <- inside HTML
+	content: "\2195"; 
+	*/
+}
+
+th { 
+	white-space:nowrap; 
+	padding: 4px; 
+	border: 1px solid #CCC;
+	overflow: hidden;
+	text-align: left;
+	vertical-align: middle;
+}
+th { 
+	/* background-color: #DDD; */
+	background-color: #DDD; 
+	font-weight: 400;
+}
+th span,
+td span { 
+	/* display: block; */ /* keep content on 1 line */
+	width: 100%;
+}
+th span.sort-by {
+	white-space:nowrap; 
+	/* padding-right: 18px; */
+	margin-left: 20px;
+	position: relative;
+}

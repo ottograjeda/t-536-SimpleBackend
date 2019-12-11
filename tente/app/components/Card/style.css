@@ -1,0 +1,21 @@
+.card-example {
+	max-width: 45%;
+	position: relative;
+	background-color: #fff;
+	margin-bottom: 40px;
+}
+
+.card-example img {
+	width: 100%;
+}
+
+.card-example span.title {
+	display: inline-block;
+	position: absolute;
+	bottom: 140px;
+	left: 20px;
+}
+
+.card-example .label {
+	padding: 25px 25px 0;
+}

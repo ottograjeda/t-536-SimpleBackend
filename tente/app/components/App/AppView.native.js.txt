@@ -1,0 +1,2 @@
+// If creating a monorepo, this is the Mobile file (for both iOS & Android).
+// You would port the existing (Web) file to AppView.native.js as needed

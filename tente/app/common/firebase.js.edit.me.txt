@@ -1,0 +1,21 @@
+// og.note: this is SAME for both web + mobile
+import firebase from 'firebase/app'; 
+import 'firebase/auth';
+import 'firebase/database'; // initialize the realtime database API for your Firebase class 
+
+var config = {
+  apiKey:            " enter firebase details here ",
+  authDomain:        " enter firebase details here ",
+  databaseURL:       " enter firebase details here ",
+  projectId:         " enter firebase details here ",
+  storageBucket:     " enter firebase details here ",
+  messagingSenderId: " enter firebase details here ",
+  appId:             " enter firebase details here "
+};
+
+firebase.initializeApp(config);
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = firebase.auth();
+export const database = firebase.database();
+export default firebase;
