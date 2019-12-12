@@ -78,7 +78,7 @@ class List extends Component {
      })
     */
    
-    // get Firebase
+    // get Firebase data
 	var dbRef = database.ref('allSheet'); // hardcode db name
     dbRef.on('value', (snapshot) => { // no error checking ; will fail silently (done on purpose)
       let items = snapshot.val();
@@ -117,7 +117,6 @@ class List extends Component {
 		      <th className="mui--text-left" onClick={ () => this.sortTable(1) }> Username <span className="sort-by">&#8597;</span> </th>
 		      <th className="mui--text-left" onClick={ () => this.sortTable(2) }> Email <span className="sort-by">&#8597;</span> </th>
 		      <th className="mui--text-left" onClick={ () => this.sortTable(3) }> Website <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left">Action</th>
 		    </tr>
 		  </thead>
 
@@ -129,7 +128,6 @@ class List extends Component {
 		      <td className="mui--text-left">{item.username}</td>
 		      <td className="mui--text-left">{item.email}</td>
 		      <td className="mui--text-left">{item.website}</td>
-		      <td className="mui--text-left"> <button onClick={ () => this.handleClick(item.id) }> add </button> </td>
 		    </tr>
 		    ))}
 		  </tbody>
@@ -141,7 +139,6 @@ class List extends Component {
 		      <td className="mui--text-left">{item.userName}</td>
 		      <td className="mui--text-left">{item.userEmail}</td>
 		      <td className="mui--text-left">{item.userWebsite}</td>
-		      <td className="mui--text-left"> <button onClick={ () => this.handleClick(item.id) }> add </button> </td>
 		    </tr>
 		    ))}
 		  </tbody>
