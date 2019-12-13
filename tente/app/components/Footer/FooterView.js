@@ -14,7 +14,7 @@ class Footer extends Component {
   checkBottom = () => {
     window.onscroll = function(ev) {
       if ((window.innerHeight + window.scrollY) > document.body.scrollHeight - 5 ) { 
-        console.log('at page bottom');
+        //console.log('at page bottom');
         document.getElementById('hiTest').style.display = 'block'; 
       } else {
         document.getElementById('hiTest').style.display = 'none';      
@@ -23,13 +23,13 @@ class Footer extends Component {
   }
 
   componentWillUnmount() {
-    console.log('footer > will UN mount');
+    //console.log('footer > will UN mount');
     document.removeEventListener('scroll', this.state.listener); // avoid causing memory lead
     this.setState({listener: null});
   }
 
   componentDidMount() {
-    console.log('footer > componentDidMount')
+    //console.log('footer > componentDidMount')
     this.setState({listener: this.checkBottom.bind(this)}, () => document.addEventListener('scroll', this.state.listener));
 
   }

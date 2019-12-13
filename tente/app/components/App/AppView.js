@@ -30,7 +30,7 @@ class AppView extends Component {
   }
 
   componentDidMount() {
-    console.log('app > componentDidMount')
+    //console.log('app > componentDidMount')
   }
 
   render() {

@@ -7,13 +7,14 @@ import firebase, { database, provider } from '../../common/firebase'; // firebas
 
 import './style.css'; // custom + muicss
 
-var GET_URL = 'https://jsonplaceholder.typicode.com/users'; // users 10 ; comments 500 ; photos 5000 ; ref = https://jsonplaceholder.typicode.com
+var GET_URL = 'https://jsonplaceholder.typicode.com/photos'; // For Axios: users 10 , comments 500 , photos 5000 ; ref = https://jsonplaceholder.typicode.com
 
 class List extends Component {
 	constructor(props) {
 		super(props);
+		this.waitHide = this.waitHide.bind(this);   // required 
+		this.waitShow = this.waitShow.bind(this);   // required 
 		this.sortTable = this.sortTable.bind(this); // required 
-		this.handleClick = this.handleClick.bind(this); // required 
 	}
    
     state = {
@@ -22,52 +23,65 @@ class List extends Component {
     	users: []    // placeholder for json data
   	};
 
+  	// o.fixme: not efficient for large list (200+ records)
   	// ref = https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table_desc
   	sortTable = function(n) {
-	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-	  table = document.getElementById("dataTable");
-	  switching = true;
-	  dir = "asc"; // Set sorting direction
-	  while (switching) { // Make a loop that will continue until no switching has been done:
-	    switching = false; //start by saying: no switching is done
-	    rows = table.rows;
-	    for (i = 1; i < (rows.length - 1); i++) { // Loop through all table rows (except the first, which contains table headers):
-	      shouldSwitch = false; // start by saying there should be no switching
-	      // Get the two elements you want to compare, one from current row and one from the next
-	      x = rows[i].getElementsByTagName("td")[n];
-	      y = rows[i + 1].getElementsByTagName("td")[n];
-	      if (dir == "asc") { // check if the two rows should switch place, based on the direction, asc or desc
-	        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-	          shouldSwitch= true; // if so, mark as a switch and break the loop
-	          break;
-	        }
-	      } else if (dir == "desc") {
-	        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-	          shouldSwitch = true; // if so, mark as a switch and break the loop
-	          break;
-	        }
-	      }
-	    }
-	    if (shouldSwitch) {
-	      // If a switch has been marked, make the switch and mark that a switch has been done
-	      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-	      switching = true;
-	      switchcount ++; // Each time a switch is done, increase this count by 1
-	    } else {
-	      if (switchcount == 0 && dir == "asc") { // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again.
-	        dir = "desc";
-	        switching = true;
-	      }
-	    }
-	  }
+		var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+		table = document.getElementById("dataTable");
+		switching = true;
+		dir = "asc"; // Set sorting direction
+		while (switching) { // Make a loop that will continue until no switching has been done:
+		switching = false; //start by saying: no switching is done
+		rows = table.rows;
+		for (i = 1; i < (rows.length - 1); i++) { // Loop through all table rows (except the first, which contains table headers):
+		  shouldSwitch = false; // start by saying there should be no switching
+		  // Get the two elements you want to compare, one from current row and one from the next
+		  x = rows[i].getElementsByTagName("td")[n];
+		  y = rows[i + 1].getElementsByTagName("td")[n];
+		  if (dir == "asc") { // check if the two rows should switch place, based on the direction, asc or desc
+		    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+		      shouldSwitch= true; // if so, mark as a switch and break the loop
+		      break;
+		    }
+		  } else if (dir == "desc") {
+		    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+		      shouldSwitch = true; // if so, mark as a switch and break the loop
+		      break;
+		    }
+		  } // end if else if
+		} // end for
+		if (shouldSwitch) {
+		  //console.log('sort working...')
+		  // If a switch has been marked, make the switch and mark that a switch has been done
+		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		  switching = true;
+		  switchcount ++; // Each time a switch is done, increase this count by 1
+		} else {
+		  if (switchcount == 0 && dir == "asc") { // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again.
+		    dir = "desc";
+		    switching = true;
+		  }
+		} // end if else
+	  } // end while
+  	}
+
+  	waitHide = () => {
+    	//console.log('wait hide')
+		var element = document.getElementById("feedbackTable");
+		setTimeout(function() { element.innerHTML = 'Marketing Contact List is'}, 500); // I will be executed in .5 seconds.
+		//element.classList.remove("wait");
 	}
 
-	handleClick = id => {
-		console.log('Hi ' +id);
+  	waitShow = () => {
+    	//console.log('wait show')
+		//document.body.style.cursor = 'wait'; // cannot confirm
+		var element = document.getElementById("feedbackTable");
+		setTimeout(function() { element.innerHTML = 'sorting...'}, 0); // I will execute now
+		//element.classList.add("wait");
 	}
 
   componentDidMount() {
-    console.log('list > componentDidMount')
+    //console.log('list > componentDidMount')
     this.setState({ loading: true }) // set loader true to show ; make sure to unset below 
 
     // (working) placeholder to get JSON data via external API (in case Firebase/GAS not used)
@@ -101,7 +115,7 @@ class List extends Component {
   } // end did mount
 
   render() {
-    console.log('list > render ')
+    //console.log('list > render ')
     const { loading, items, users } = this.state;
 
     return (
@@ -109,18 +123,21 @@ class List extends Component {
 	<section>
     { loading ? <Loader /> : 
 
-		<section style={{paddingBottom:"100px"}}>
+		<section style={{paddingBottom:"90px"}}>
+		<div id="feedbackTable" style={{zIndex:"10", top:"10px",fontSize:"14px",textAlign:"center",letterSpacing:"2px",paddingBottom:"15px"}}>Marketing Contact List is<br/></div>
 		<table className="mui-table" id="dataTable">
 		  <thead>
-		    <tr>
-		      <th className="mui--text-left" onClick={ () => this.sortTable(0) }> ID  <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => this.sortTable(1) }> Username <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => this.sortTable(2) }> Email <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => this.sortTable(3) }> Website <span className="sort-by">&#8597;</span> </th>
+		    <tr  style={{cursor:"pointer"}}>
+
+              {/* UX Feedback for onClick is outside ReactJS ; can be refactored */}
+		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(0), 0); setTimeout( this.waitHide(), 0); } }> ID  <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(1), 0); setTimeout( this.waitHide(), 0); } }> Username <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(2), 0); setTimeout( this.waitHide(), 0); } }> Email <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(3), 0); setTimeout( this.waitHide(), 0); } }> Website <span className="sort-by">&#8597;</span> </th>
 		    </tr>
 		  </thead>
 
-          {/* Will be blank if Axios not used to get JSON data */}
+          {/* Axios data ; Will be blank if Axios not used */}
 		  <tbody>
 		  {users.map(item => (
 		    <tr key={item.id}>
@@ -132,6 +149,7 @@ class List extends Component {
 		    ))}
 		  </tbody>
 
+          {/* Firebase data */}
 		  <tbody>
 		  {items.map(item => (
 		    <tr key={item.userID}>

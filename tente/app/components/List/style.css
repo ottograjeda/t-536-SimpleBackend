@@ -37,3 +37,8 @@ th span.sort-by {
 	margin-left: 20px;
 	position: relative;
 }
+
+body.wait {
+	background-color: green;
+    cursor: wait !important;   
+}

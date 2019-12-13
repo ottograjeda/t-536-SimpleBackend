@@ -14,7 +14,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // per https://webpac
 module.exports = {    
     devServer: {
          contentBase: 'https://localhost',
-         port: 8080,
+         port: 8000,
          // Send API requests on localhost to API server get around CORS.
          /* 
          headers: {
@@ -44,7 +44,7 @@ module.exports = {
         filename: "js/bundle.js",
         sourceMapFilename: "js/bundle.map"
         },
-    devtool: 'source-map', // enable = source-map to create .map files
+    devtool: 'false', // enable = change false to source-map ... to create .map files
     optimization: {
         minimizer: [
           new UglifyJsPlugin({
