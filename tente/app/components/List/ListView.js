@@ -20,8 +20,8 @@ class List extends Component {
    
     state = {
     	loading: '', // placeholder for loader ; set loader true to show (as needed)
-    	items: [],   // placeholder for firebase data
-    	users: []    // placeholder for json data
+    	items: [],   // placeholder for firebase data (flat json)
+    	users: []    // placeholder for json data (flat json)
   	};
 
   	// wrapper for X steps (of Y process)
