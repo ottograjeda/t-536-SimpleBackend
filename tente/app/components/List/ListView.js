@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
-import Loader  from '../../components/Loader';
+import Loader  from '../../components/Loader'; // custom loader 
 import axios from 'axios'; // left incase Firebase not used
-import firebase, { database, provider } from '../../common/firebase'; // firebase
+import firebase, { database, provider } from '../../common/firebase'; // Firebase
 
 import './style.css'; // custom + muicss
 
@@ -12,9 +12,10 @@ var GET_URL = 'https://jsonplaceholder.typicode.com/photos'; // For Axios: users
 class List extends Component {
 	constructor(props) {
 		super(props);
-		this.waitHide = this.waitHide.bind(this);   // required 
-		this.waitShow = this.waitShow.bind(this);   // required 
-		this.sortTable = this.sortTable.bind(this); // required 
+		this.waitHide = this.waitHide.bind(this);         // required 
+		this.waitShow = this.waitShow.bind(this);         // required 
+		this.sortTable = this.sortTable.bind(this);       // required 
+		this.sortProcess = this.sortProcess.bind(this);   // required 
 	}
    
     state = {
@@ -23,9 +24,19 @@ class List extends Component {
     	users: []    // placeholder for json data
   	};
 
-  	// o.fixme: not efficient for large list (200+ records)
+  	// wrapper for X steps (of Y process)
+  	sortProcess = (x) => {
+		//console.log('wrapper start ' +x)
+		this.waitShow(); 
+		setTimeout( this.sortTable(x), 0); 
+		setTimeout( this.waitHide(), 0);
+		//console.log('wrapper end')
+	}
+
+  	// o.fixme: not efficient for large list (200+ records). does not use loader. recommend refactor 
   	// ref = https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table_desc
   	sortTable = function(n) {
+        //console.log('sort working...') // single log (for ux feedback)
 		var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 		table = document.getElementById("dataTable");
 		switching = true;
@@ -51,7 +62,6 @@ class List extends Component {
 		  } // end if else if
 		} // end for
 		if (shouldSwitch) {
-		  //console.log('sort working...')
 		  // If a switch has been marked, make the switch and mark that a switch has been done
 		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 		  switching = true;
@@ -61,14 +71,16 @@ class List extends Component {
 		    dir = "desc";
 		    switching = true;
 		  }
+	    //console.log('done') // single log (for ux feedback)
 		} // end if else
 	  } // end while
   	}
 
+  	// start: plain js "loader" (left here as example - what NOT to do)
   	waitHide = () => {
     	//console.log('wait hide')
 		var element = document.getElementById("feedbackTable");
-		setTimeout(function() { element.innerHTML = 'Marketing Contact List is'}, 500); // I will be executed in .5 seconds.
+		setTimeout(function() { element.innerHTML = 'Marketing Contact List is'}, 400); // I will be executed in o.X seconds.
 		//element.classList.remove("wait");
 	}
 
@@ -79,12 +91,13 @@ class List extends Component {
 		setTimeout(function() { element.innerHTML = 'sorting...'}, 0); // I will execute now
 		//element.classList.add("wait");
 	}
+  	// end: plain js "loader" (left here as example - what NOT to do)
 
   componentDidMount() {
     //console.log('list > componentDidMount')
     this.setState({ loading: true }) // set loader true to show ; make sure to unset below 
 
-    // (working) placeholder to get JSON data via external API (in case Firebase/GAS not used)
+    // (working) placeholder to get JSON data via external API 
     /*
     axios.get(GET_URL).then(response => response.data)
     .then((data) => { 
@@ -118,6 +131,9 @@ class List extends Component {
     //console.log('list > render ')
     const { loading, items, users } = this.state;
 
+	// o.note: for return, if N functions called = used wrapper or test, like this
+	// <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(1), 0); setTimeout( this.waitHide(), 0); } }> Username <span className="sort-by">&#8597;</span> </th>
+
     return (
 
 	<section>
@@ -129,11 +145,11 @@ class List extends Component {
 		  <thead>
 		    <tr  style={{cursor:"pointer"}}>
 
-              {/* UX Feedback for onClick is outside ReactJS ; can be refactored */}
-		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(0), 0); setTimeout( this.waitHide(), 0); } }> ID  <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(1), 0); setTimeout( this.waitHide(), 0); } }> Username <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(2), 0); setTimeout( this.waitHide(), 0); } }> Email <span className="sort-by">&#8597;</span> </th>
-		      <th className="mui--text-left" onClick={ () => { this.waitShow(); setTimeout( this.sortTable(3), 0); setTimeout( this.waitHide(), 0); } }> Website <span className="sort-by">&#8597;</span> </th>
+              {/* o.note: See waitHide for UX Feedback for onClick */}
+		      <th className="mui--text-left" onClick={ () => { this.sortProcess(0) }}> ID  <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.sortProcess(1) }}> Username <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.sortProcess(2) }}> Email <span className="sort-by">&#8597;</span> </th>
+		      <th className="mui--text-left" onClick={ () => { this.sortProcess(3) }}> Website <span className="sort-by">&#8597;</span> </th>
 		    </tr>
 		  </thead>
 

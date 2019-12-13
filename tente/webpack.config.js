@@ -44,7 +44,7 @@ module.exports = {
         filename: "js/bundle.js",
         sourceMapFilename: "js/bundle.map"
         },
-    devtool: 'false', // enable = change false to source-map ... to create .map files
+    devtool: 'false', // options = false, source-map ; source-map creates .map files
     optimization: {
         minimizer: [
           new UglifyJsPlugin({

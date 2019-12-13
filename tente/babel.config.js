@@ -14,5 +14,5 @@ module.exports = {
       },
     ],
   ],
-  "sourceMaps": true // false if you want NO .map files ; if on, must match webpack.config
+  "sourceMaps": false // false if you want NO .map files ; if on, must match webpack.config
 };
