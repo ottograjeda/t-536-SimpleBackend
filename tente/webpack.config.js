@@ -14,7 +14,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // per https://webpac
 module.exports = {    
     devServer: {
          contentBase: 'https://localhost',
-         port: 8000,
+         port: 8080,
          // Send API requests on localhost to API server get around CORS.
          /* 
          headers: {
