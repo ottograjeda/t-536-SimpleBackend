@@ -51,9 +51,9 @@ Demo & Animated GIFs
 * Google PageSpeed Analysis ([desktop](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=desktop) | [mobile](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=mobile))    
 **Note** The spreadsheet & demo are primarily for desktop use.     
 
-![Animated GIF - Webapp on iOS](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_ios.gif)
-![Animated GIF - Webapp on Android](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_android.gif)
-![Animated GIF - Webapp on Desktop](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_web.gif)
+* ![Animated GIF - Webapp on iOS](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_ios.gif)    
+* ![Animated GIF - Webapp on Android](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_android.gif)    
+* ![Animated GIF - Webapp on Desktop](https://github.com/og-pr/public_ticket.536/blob/master/SimpleForm/_docs/ezgif-720_web.gif)    
 
 Notes - Development
 ===========
@@ -64,6 +64,7 @@ Notes - Development
 * Custom components for [Card](https://github.com/ottograjeda/public_ticket.536/tree/master/tente/app/components/Card) & [Loader](https://github.com/ottograjeda/public_ticket.536/tree/master/tente/app/components/Loader) used. Can be removed or refactored, as needed.
 * [GAS code](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/sheet.js) transfers the entire sheet to database. Can be refactored to update 1 or N records.    
 **Note** Update is done manually. Can be refactored for staff use by adding [spreadsheet button](http://googleappscripting.com/google-spreadsheet-button/).
+* Table / Data sorting is 3rd party external plain JavaScript code (not npm package) added to webapp.
 
 Inspiration
 ===========
