@@ -59,6 +59,7 @@ Demo & Animated GIFs
 
 Notes - Development
 ===========
+* CSS is mix of custom code and [MUI](https://www.muicss.com/) 
 * Data flow is one-way, from spreadsheet to database (to webapp).
 * Data is flat json. The code grabs all data  (in this repo: 100 records).
 * Code in [sheet.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/sheet.js) & [ListView.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/components/List/ListView.js) can be refactored for nested / complex json.
