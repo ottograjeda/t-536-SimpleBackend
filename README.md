@@ -46,16 +46,15 @@ For web, from the root directory, do
 
 Demo & Animated GIFs
 ===========
-* [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1m3JEFMO4zf7em3U4mnXFSttKFHQswltx8LiNM79jZJY/edit?usp=sharing)
-* [Live Demo](https://t-536-react.web.app/) at [Firebase Hosting](https://firebase.google.com/docs/hosting)
-* Google PageSpeed Analysis ([desktop](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=desktop) | [mobile](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=mobile))
-**Note** The spreadsheet & demo are primarily for desktop use.
-
-* SimpleBackend on iOS   
+* [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1m3JEFMO4zf7em3U4mnXFSttKFHQswltx8LiNM79jZJY/edit?usp=sharing)  
+* [Live Demo](https://t-536-react.web.app/) at [Firebase Hosting](https://firebase.google.com/docs/hosting)  
+* Google PageSpeed Analysis ([desktop](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=desktop) | [mobile](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=mobile))  
+**Note** The spreadsheet & demo are primarily for desktop use.  
+* SimpleBackend on iOS 
 ![Animated GIF - Webapp on iOS](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_ios.gif) 
-* SimpleBackend on Android   
+* SimpleBackend on Android 
 ![Animated GIF - Webapp on Android](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_android.gif) 
-* SimpleBackend Webapp   
+* SimpleBackend Webapp 
 ![Animated GIF - Webapp on Desktop](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_web.gif) 
 
 Notes - Development
