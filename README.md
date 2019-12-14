@@ -17,17 +17,17 @@ Installation
 Webapp
 *  Get the repo
 * From root directory, do ```yarn```
-* Add Firebase per this guide: [Firebase JS SDK for Webapps](https://firebase.google.com/docs/web/setup/)    
+* Add Firebase per this guide: [Firebase JS SDK for Webapps](https://firebase.google.com/docs/web/setup/)  
 **Required** Basic ReactJS knowledge. If repo user needs review, please read [this](https://www.taniarascia.com/getting-started-with-react/) 
 
 Data (Flat JSON)
 * Pre made data from [Typicode](https://jsonplaceholder.typicode.com/)
-* Custom data you create from [Mockaroo](https://mockaroo.com/)    
+* Custom data you create from [Mockaroo](https://mockaroo.com/) 
 **Note** If repo data ([xls](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/data.xlsx) | [csv](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/data.csv)) will be different, update [sheet.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/sheet.js) & [ListView.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/components/List/ListView.js) as needed.
 
 Database
 * Create [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/)
-* Configure 3rd party access to database, per this [guide](https://firebase.google.com/docs/storage/web/start)    
+* Configure 3rd party access to database, per this [guide](https://firebase.google.com/docs/storage/web/start) 
 **Note** Remember to update Firebase [security rules](https://firebase.google.com/docs/database/security/quickstart) as needed
 
 Spreadsheet
@@ -46,16 +46,16 @@ For web, from the root directory, do
 
 Demo & Animated GIFs
 ===========
-* [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1m3JEFMO4zf7em3U4mnXFSttKFHQswltx8LiNM79jZJY/edit?usp=sharing)  
-* [Live Demo](https://t-536-react.web.app/) at [Firebase Hosting](https://firebase.google.com/docs/hosting)  
-* Google PageSpeed Analysis ([desktop](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=desktop) | [mobile](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=mobile))  
-**Note** The spreadsheet & demo are primarily for desktop use.  
+* [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1m3JEFMO4zf7em3U4mnXFSttKFHQswltx8LiNM79jZJY/edit?usp=sharing) 
+* [Live Demo](https://t-536-react.web.app/) at [Firebase Hosting](https://firebase.google.com/docs/hosting) 
+* Google PageSpeed Analysis ([desktop](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=desktop) | [mobile](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Ft-536-react.web.app%2F&tab=mobile)) 
+**Note** The spreadsheet & demo are primarily for desktop use. 
 * SimpleBackend on iOS 
-![Animated GIF - Webapp on iOS](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_ios.gif) 
+![Animated GIF - Webapp on iOS](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_ios.gif)
 * SimpleBackend on Android 
-![Animated GIF - Webapp on Android](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_android.gif) 
+![Animated GIF - Webapp on Android](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_android.gif)
 * SimpleBackend Webapp 
-![Animated GIF - Webapp on Desktop](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_web.gif) 
+![Animated GIF - Webapp on Desktop](https://raw.githubusercontent.com/ottograjeda/public_ticket.536/master/tente/_docs/ezgif-720_web.gif)
 
 Notes - Development
 ===========
