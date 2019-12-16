@@ -4,7 +4,8 @@ ReactJS: SimpleBackend
 
 The business use case is to manage spreadsheet data independently, and when ready for    
 public use, transfer to the database. Once transferred, the data is available to all web     
-& mobile clients; there is no need to redeploy. 
+& mobile clients; there is no need to redeploy. With modifications, any product or 
+service list would be example webapps ; i.e. [BuzzFeed News](https://www.buzzfeednews.com/), etc.
 
 This repo is for Web built using ```create-react-app``` (see [docs](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)). It can be used as     
 starter-kit or combined with a monorepo, like [SimpleLanding](https://github.com/og-pr/public_ticket.530) or [SimpleApp](https://github.com/ottograjeda/public_ticket.528)     
