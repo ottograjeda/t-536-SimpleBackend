@@ -4,7 +4,7 @@ ReactJS: SimpleBackend
 
 The business use case is to manage spreadsheet data independently, and when ready for    
 public use, transfer to the database. Once transferred, the data is available to all web     
-& mobile clients; there is no need to redeploy. With modifications, any product or 
+& mobile clients; there is no need to redeploy. With modifications, any product or   
 service list would be example webapps ; i.e. [BuzzFeed News](https://www.buzzfeednews.com/), etc.
 
 This repo is for Web built using ```create-react-app``` (see [docs](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)). It can be used as     
