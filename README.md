@@ -61,6 +61,7 @@ Demo & Animated GIFs
 Notes - Development
 ===========
 * CSS is mix of custom code and [MUI](https://www.muicss.com/) 
+* If Dynamic Footer needed, please see [Oreni](https://stackoverflow.com/questions/8815784/how-to-keep-footer-at-the-bottom-even-with-dynamic-height-website) for inspiration    
 * Data flow is one-way, from spreadsheet to database (to webapp).
 * Data is flat json. The code grabs all data  (in this repo: 100 records).
 * Code in [sheet.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/sheet.js) & [ListView.js](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/components/List/ListView.js) can be refactored for nested / complex json.
