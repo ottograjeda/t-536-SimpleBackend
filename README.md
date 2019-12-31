@@ -69,7 +69,8 @@ Notes - Development
 * Custom components for [Card](https://github.com/ottograjeda/public_ticket.536/tree/master/tente/app/components/Card) & [Loader](https://github.com/ottograjeda/public_ticket.536/tree/master/tente/app/components/Loader) used. Can be removed or refactored, as needed.
 * [GAS code](https://github.com/ottograjeda/public_ticket.536/blob/master/tente/app/gas/sheet.js) transfers the entire sheet to database. Can be refactored to update 1 or N records.    
 **Note** Update is done manually. Can be refactored for staff use by adding [spreadsheet button](http://googleappscripting.com/google-spreadsheet-button/).
-* Table / Data sorting is 3rd party external plain JavaScript code (not npm package) added to webapp.
+* Data table sorting is 3rd party external plain JavaScript code added to webapp. If a complex    
+table is needed, consider building a [custom component](https://engineering.shopify.com/blogs/engineering/building-data-table-component-react) or using [react-table](https://github.com/tannerlinsley/react-table#readme).
 
 Inspiration
 ===========
