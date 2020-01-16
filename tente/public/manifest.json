@@ -1,6 +1,6 @@
 {
-  "short_name": "RemoList",
-  "name": "RemoList",
+  "short_name": "SimpleBackend",
+  "name": "SimpleBackend",
   "icons": [
     {
       "src": "favicon.ico",
